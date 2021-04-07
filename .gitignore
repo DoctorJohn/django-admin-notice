@@ -1,0 +1,22 @@
+# Git
+*.orig
+
+# Python
+*.pyc
+*.egg
+*.egg-info
+__pycache__
+build
+dist
+
+# Django
+db.sqlite
+
+# Pytest
+.coverage
+
+# Tox
+.tox
+
+# Editors
+.idea/
