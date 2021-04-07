@@ -66,8 +66,8 @@ It's a common use case to indicate the projects deployment environment.
 The following configuration shows how to obtain the `django-admin-notice`
 configuration from environment variables and how to configure a fallback.
 
-```
-# project/settings.py
+```python
+# yourproject/settings.py
 from os import environ
 
 ADMIN_NOTICE_TEXT = environ.get("ADMIN_NOTICE_TEXT", "Local environment")
@@ -77,7 +77,7 @@ ADMIN_NOTICE_BACKGROUND = environ.get("ADMIN_NOTICE_BACKGROUND", "green")
 
 ## Example
 
-Run `python manage.py runserver` after following the Installation section
+Run `python manage.py runserver` after following the *Installation* section
 to see a fully working example project.
 
 ## Contributing
