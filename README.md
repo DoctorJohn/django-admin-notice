@@ -15,9 +15,7 @@ Install django-admin-notice via the Python Package Index (PyPI):
 Add `admin_notice` to your `INSTALLED_APPS` somewhere before `django.contrib.admin`.
 
 ```python
-# yourproject/settings.py
 INSTALLED_APPS = [
-    # ... other apps
     "admin_notice",  # <-- Add this somewhere before "django.contrib.admin"
     "django.contrib.admin",
     # ... other apps
@@ -28,12 +26,10 @@ Add `admin_notice.context_processors.notice` to the templates `context_processor
 Having `django.template.context_processors.request` is required as well.
 
 ```python
-# yourproject/settings.py
 TEMPLATES = [
     {
         "OPTIONS": {
             "context_processors": [
-                # ... other context processors
                 "django.template.context_processors.request",  # <-- have this
                 "admin_notice.context_processors.notice",  # <-- Add this
                 # ... other context processors
@@ -43,13 +39,12 @@ TEMPLATES = [
 ]
 ```
 
-## Configuration
+## Settings
 
 Set the `ADMIN_NOTICE_TEXT` to the text you want to show above the admin interface.
 No message is shown if this setting is missing or empty.
 
 ```python
-# yourproject/settings.py
 ADMIN_NOTICE_TEXT = "Production environment"
 ```
 
@@ -57,7 +52,6 @@ Optionally specify a custom text color and background for your notice.
 The default text color is `white` and the default background `red`.
 
 ```python
-# yourproject/settings.py
 ADMIN_NOTICE_TEXT_COLOR = "white"
 ADMIN_NOTICE_BACKGROUND = "red"
 ```
@@ -69,7 +63,6 @@ The following configuration shows how to obtain the `django-admin-notice`
 configuration from environment variables and how to configure a fallback.
 
 ```python
-# yourproject/settings.py
 from os import environ
 
 ADMIN_NOTICE_TEXT = environ.get("ADMIN_NOTICE_TEXT", "Local environment")
