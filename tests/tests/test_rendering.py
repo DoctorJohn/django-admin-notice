@@ -8,7 +8,7 @@ fake = Faker()
 RENDER_INDICATOR = "<!-- django-admin-notice -->"
 
 
-class RenderingTestCase(TestCase):
+class AuthenticatedRenderingTestCase(TestCase):
     def setUp(self) -> None:
         super().setUp()
         superuser = get_user_model().objects.create_superuser(
@@ -56,3 +56,18 @@ class RenderingTestCase(TestCase):
             response = self.client.get("/admin/")
             self.assertContains(response, RENDER_INDICATOR)
             self.assertContains(response, "background: red")
+
+
+class UnauthenticatedRenderingTestCase(TestCase):
+    def test_renders_only_when_authenticated(self):
+        with self.settings(ADMIN_NOTICE_TEXT=fake.sentence()):
+            response = self.client.get("/admin/login/")
+            self.assertNotContains(response, RENDER_INDICATOR)
+
+            superuser = get_user_model().objects.create_superuser(
+                username="admin", email=fake.email(), password=fake.password()
+            )
+            self.client.force_login(superuser)
+
+            response = self.client.get("/admin/")
+            self.assertContains(response, RENDER_INDICATOR)

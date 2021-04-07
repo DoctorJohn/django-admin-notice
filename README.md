@@ -25,6 +25,7 @@ INSTALLED_APPS = [
 ```
 
 Add `admin_notice.context_processors.notice` to the templates `context_processors`.
+Having `django.template.context_processors.request` is required as well.
 
 ```python
 # yourproject/settings.py
@@ -33,6 +34,7 @@ TEMPLATES = [
         "OPTIONS": {
             "context_processors": [
                 # ... other context processors
+                "django.template.context_processors.request",  # <-- have this
                 "admin_notice.context_processors.notice",  # <-- Add this
                 # ... other context processors
             ]

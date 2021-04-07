@@ -1,6 +1,6 @@
 {% extends "admin/base.html" %}
 {% block extrastyle %}{{ block.super }}
-{% if ADMIN_NOTICE_TEXT %}
+{% if request.user.is_authenticated and ADMIN_NOTICE_TEXT %}
 <!-- django-admin-notice -->
 <style type="text/css">
     body:before {
