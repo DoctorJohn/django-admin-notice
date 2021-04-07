@@ -1,0 +1,22 @@
+{% extends "admin/base.html" %}
+{% block extrastyle %}{{ block.super }}
+{% if ADMIN_NOTICE_TEXT %}
+<!-- django-admin-notice -->
+<style type="text/css">
+    body:before {
+        display: block;
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+        padding: .5rem 1rem;
+        line-height: 1.25rem;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: {{ ADMIN_NOTICE_TEXT_COLOR }};
+        background: {{ ADMIN_NOTICE_BACKGROUND }};
+        content: "{{ ADMIN_NOTICE_TEXT }}";
+    }
+</style>
+{% endif %}
+{% endblock %}
