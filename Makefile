@@ -16,7 +16,7 @@ lint:
 
 .PHONY: test
 test:
-	py.test --cov=admin_notice tests
+	py.test --cov-report term-missing --cov=admin_notice tests
 
 .PHONY: tox
 tox:
