@@ -1,11 +1,15 @@
 # Django Admin Notice
 
 [![PyPI][pypi-image]][pypi-url]
+![PyPI - Python Version][python-image]
+![PyPI - Django Version][django-image]
 [![License][license-image]][license-url]
 [![Tests][tests-image]][tests-url]
 
 [pypi-image]: https://img.shields.io/pypi/v/django-admin-notice
 [pypi-url]: https://pypi.org/project/django-admin-notice/
+[python-image]: https://img.shields.io/pypi/pyversions/django-admin-notice
+[django-image]: https://img.shields.io/pypi/djversions/django-admin-notice
 [license-image]: https://img.shields.io/pypi/l/django-admin-notice
 [license-url]: https://github.com/DoctorJohn/django-admin-notice/blob/master/LICENSE
 [tests-image]: https://github.com/DoctorJohn/django-admin-notice/workflows/Tests/badge.svg
