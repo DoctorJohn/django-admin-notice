@@ -40,7 +40,6 @@ faker = "^8.0.0"
 pytest = "^6.2.2"
 pytest-cov = "^2.11.1"
 pytest-django = "^4.1.0"
-tox = "^3.23.0"
 
 [build-system]
 requires = ["poetry-core"]
