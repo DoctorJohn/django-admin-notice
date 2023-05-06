@@ -84,4 +84,5 @@ Take a look at our Django example project under tests/project. You can run it by
 
 1. `poetry install`
 2. `poetry run python tests/project/manage.py migrate`
-3. `poetry run python tests/project/manage.py runserver`
+3. `poetry run python tests/project/manage.py createsuperuser`
+4. `poetry run python tests/project/manage.py runserver`
