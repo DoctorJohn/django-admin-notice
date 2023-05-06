@@ -80,33 +80,5 @@ ADMIN_NOTICE_BACKGROUND = environ.get("ADMIN_NOTICE_BACKGROUND", "green")
 
 ## Example
 
-Run `python manage.py runserver` after following the *Installation* section
-to see a fully working example project.
-
-## Contributing
-
-### Setup
-
-1. Clone the repository and enter the cloned folder
-2. (optional) Create and activate a dedicated Python virtual environment
-3. Run `pip install -e ".[dev]"` to install the projects requirements
-4. (optional) Run `pre-commit install` to install the pre-commit hook
-
-### Pre-commit hook
-
-Our pre-commit hook formats and lints the code.
-
-### Formatting and linting
-
-- Run `black admin_notice tests` to format the code
-- Run `flake8 admin_notice tests` to lint the code
-
-### Testing
-
-- Run `py.test --cov admin_notice tests` to run the tests in the current Python env
-- Run `tox` to run the tests in all supported Python and Django environments
-
-### Makefile
-
-All commands listed above have shortcut make recipes.
-Take a look at the `Makefile` to learn more.
+Run `poetry run python manage.py runserver` after following the
+*Installation* section to see a fully working example project.

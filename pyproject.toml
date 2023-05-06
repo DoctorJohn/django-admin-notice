@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "django-admin-notice"
+version = "1.1.4"
+description = "Show a floating notice banner above the Django admon interface"
+authors = ["Jonathan Ehwald <github@ehwald.info>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "admin_notice"}]
+homepage = "https://github.com/DoctorJohn/django-admin-notice"
+repository = "https://github.com/DoctorJohn/django-admin-notice"
+documentation = "https://github.com/DoctorJohn/django-admin-notice"
+classifiers = [
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 2.2",
+    "Framework :: Django :: 3.0",
+    "Framework :: Django :: 3.1",
+    "Framework :: Django :: 3.2",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+django = ">=2.2"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^3.9.0"
+black = "^20.8b1"
+pre-commit = "^2.11.0"
+faker = "^8.0.0"
+pytest = "^6.2.2"
+pytest-cov = "^2.11.1"
+pytest-django = "^4.1.0"
+tox = "^3.23.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
