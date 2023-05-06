@@ -33,7 +33,7 @@ python = "^3.8"
 django = ">=2.2"
 
 [tool.poetry.group.dev.dependencies]
-flake8 = "^3.9.0"
+ruff = "^0.0.265"
 black = "^23.3.0"
 pre-commit = "^2.11.0"
 faker = "^8.0.0"
@@ -45,3 +45,7 @@ tox = "^3.23.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 119
+ignore = ["E501"]
