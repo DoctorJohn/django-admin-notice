@@ -14,6 +14,8 @@
 Show a floating notice banner above the Django admin interface.
 Particularly useful for indicating the current deployment environment.
 
+![Admin notice preview](.github/images/preview.png)
+
 ## Installation
 
 Install django-admin-notice via the Python Package Index (PyPI):
