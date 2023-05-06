@@ -1,6 +1,3 @@
-from django.test import TestCase
-from django.contrib.auth import get_user_model
-from django.conf import settings
 from faker import Faker
 
 
@@ -8,66 +5,65 @@ fake = Faker()
 RENDER_INDICATOR = "<!-- django-admin-notice -->"
 
 
-class AuthenticatedRenderingTestCase(TestCase):
-    def setUp(self) -> None:
-        super().setUp()
-        superuser = get_user_model().objects.create_superuser(
-            username="admin", email=fake.email(), password=fake.password()
-        )
-        self.client.force_login(superuser)
-
-    def test_does_not_render_without_required_settings(self):
-        with self.settings():
-            del settings.ADMIN_NOTICE_TEXT
-            response = self.client.get("/admin/")
-            self.assertNotContains(response, RENDER_INDICATOR)
-
-    def test_renders_configured_text(self):
-        text = fake.sentence()
-        with self.settings(ADMIN_NOTICE_TEXT=text):
-            response = self.client.get("/admin/")
-            self.assertContains(response, RENDER_INDICATOR)
-            self.assertContains(response, text)
-
-    def test_renders_configured_text_color(self):
-        color = fake.rgb_css_color()
-        with self.settings(ADMIN_NOTICE_TEXT="Test", ADMIN_NOTICE_TEXT_COLOR=color):
-            response = self.client.get("/admin/")
-            self.assertContains(response, RENDER_INDICATOR)
-            self.assertContains(response, f"color: {color}")
-
-    def test_renders_configured_background(self):
-        color = fake.rgb_css_color()
-        with self.settings(ADMIN_NOTICE_TEXT="Test", ADMIN_NOTICE_BACKGROUND=color):
-            response = self.client.get("/admin/")
-            self.assertContains(response, RENDER_INDICATOR)
-            self.assertContains(response, f"background: {color}")
-
-    def test_renders_fallback_if_no_text_color_is_configured(self):
-        with self.settings():
-            del settings.ADMIN_NOTICE_TEXT_COLOR
-            response = self.client.get("/admin/")
-            self.assertContains(response, RENDER_INDICATOR)
-            self.assertContains(response, "color: white")
-
-    def test_renders_fallback_if_not_background_is_configured(self):
-        with self.settings():
-            del settings.ADMIN_NOTICE_BACKGROUND
-            response = self.client.get("/admin/")
-            self.assertContains(response, RENDER_INDICATOR)
-            self.assertContains(response, "background: red")
+def test_does_not_render_without_required_settings(settings, admin_client):
+    del settings.ADMIN_NOTICE_TEXT
+    response = admin_client.get("/admin/")
+    assert RENDER_INDICATOR not in response.content.decode()
 
 
-class UnauthenticatedRenderingTestCase(TestCase):
-    def test_renders_only_when_authenticated(self):
-        with self.settings(ADMIN_NOTICE_TEXT=fake.sentence()):
-            response = self.client.get("/admin/login/")
-            self.assertNotContains(response, RENDER_INDICATOR)
+def test_renders_configured_text(settings, admin_client):
+    text = fake.sentence()
+    settings.ADMIN_NOTICE_TEXT = text
 
-            superuser = get_user_model().objects.create_superuser(
-                username="admin", email=fake.email(), password=fake.password()
-            )
-            self.client.force_login(superuser)
+    response = admin_client.get("/admin/")
+    assert RENDER_INDICATOR in response.content.decode()
+    assert text in response.content.decode()
 
-            response = self.client.get("/admin/")
-            self.assertContains(response, RENDER_INDICATOR)
+
+def test_renders_configured_text_color(settings, admin_client):
+    color = fake.rgb_css_color()
+    settings.ADMIN_NOTICE_TEXT = "Test"
+    settings.ADMIN_NOTICE_TEXT_COLOR = color
+
+    response = admin_client.get("/admin/")
+    assert RENDER_INDICATOR in response.content.decode()
+    assert f"color: {color}" in response.content.decode()
+
+
+def test_renders_configured_background(settings, admin_client):
+    color = fake.rgb_css_color()
+    settings.ADMIN_NOTICE_TEXT = "Test"
+    settings.ADMIN_NOTICE_BACKGROUND = color
+
+    response = admin_client.get("/admin/")
+    assert RENDER_INDICATOR in response.content.decode()
+    assert f"background: {color}" in response.content.decode()
+
+
+def test_renders_fallback_if_no_text_color_is_configured(settings, admin_client):
+    del settings.ADMIN_NOTICE_TEXT_COLOR
+
+    response = admin_client.get("/admin/")
+    assert RENDER_INDICATOR in response.content.decode()
+    assert "color: white" in response.content.decode()
+
+
+def test_renders_fallback_if_not_background_is_configured(settings, admin_client):
+    del settings.ADMIN_NOTICE_BACKGROUND
+
+    response = admin_client.get("/admin/")
+    assert RENDER_INDICATOR in response.content.decode()
+    assert "background: red" in response.content.decode()
+
+
+def test_renders_only_when_authenticated(settings, client, admin_client):
+    text = fake.sentence()
+    settings.ADMIN_NOTICE_TEXT = text
+
+    response = client.get("/admin/login/")
+    assert RENDER_INDICATOR not in response.content.decode()
+    assert text not in response.content.decode()
+
+    response = admin_client.get("/admin/")
+    assert RENDER_INDICATOR in response.content.decode()
+    assert text in response.content.decode()
