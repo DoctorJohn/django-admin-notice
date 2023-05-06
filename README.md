@@ -18,9 +18,7 @@ Particularly useful for indicating the current deployment environment.
 
 ## Installation
 
-Install django-admin-notice via the Python Package Index (PyPI):
-
-`pip install django-admin-notice`
+Install django-admin-notice by running `pip install django-admin-notice`
 
 Add `admin_notice` to your `INSTALLED_APPS` somewhere before `django.contrib.admin`.
 
@@ -32,7 +30,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-Add `admin_notice.context_processors.notice` to the templates `context_processors`.
+Add `admin_notice.context_processors.notice` to the templates `context_processors`. 
 Having `django.template.context_processors.request` is required as well.
 
 ```python
