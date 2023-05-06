@@ -78,7 +78,10 @@ ADMIN_NOTICE_TEXT_COLOR = environ.get("ADMIN_NOTICE_TEXT_COLOR", "white")
 ADMIN_NOTICE_BACKGROUND = environ.get("ADMIN_NOTICE_BACKGROUND", "green")
 ```
 
-## Example
+## Example project
 
-Run `poetry run python manage.py runserver` after following the
-*Installation* section to see a fully working example project.
+Take a look at our Django example project under tests/project. You can run it by executing these commands:
+
+1. `poetry install`
+2. `poetry run python tests/project/manage.py migrate`
+3. `poetry run python tests/project/manage.py runserver`
