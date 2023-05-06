@@ -40,5 +40,5 @@ jobs:
 
     - name: Lint
       run: |
-        poetry run flake8 admin_notice tests manage.py
+        poetry run ruff admin_notice tests manage.py
         poetry run black admin_notice tests manage.py --check
