@@ -47,3 +47,6 @@ build-backend = "poetry.core.masonry.api"
 [tool.ruff]
 line-length = 119
 ignore = ["E501"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
