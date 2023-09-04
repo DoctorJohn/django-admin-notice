@@ -22,8 +22,16 @@ def test_renders_configured_text(settings, admin_client):
 
 def test_renders_configured_text_color(settings, admin_client):
     color = fake.rgb_css_color()
-    settings.ADMIN_NOTICE_TEXT = "Test"
     settings.ADMIN_NOTICE_TEXT_COLOR = color
+
+    response = admin_client.get("/admin/")
+    assert RENDER_INDICATOR in response.content.decode()
+    assert f"color: {color}" in response.content.decode()
+
+
+def test_renders_configured_dark_text_color(settings, admin_client):
+    color = fake.rgb_css_color()
+    settings.ADMIN_NOTICE_TEXT_COLOR_DARK = color
 
     response = admin_client.get("/admin/")
     assert RENDER_INDICATOR in response.content.decode()
@@ -32,8 +40,16 @@ def test_renders_configured_text_color(settings, admin_client):
 
 def test_renders_configured_background(settings, admin_client):
     color = fake.rgb_css_color()
-    settings.ADMIN_NOTICE_TEXT = "Test"
     settings.ADMIN_NOTICE_BACKGROUND = color
+
+    response = admin_client.get("/admin/")
+    assert RENDER_INDICATOR in response.content.decode()
+    assert f"background: {color}" in response.content.decode()
+
+
+def test_renders_configured_dark_background(settings, admin_client):
+    color = fake.rgb_css_color()
+    settings.ADMIN_NOTICE_BACKGROUND_DARK = color
 
     response = admin_client.get("/admin/")
     assert RENDER_INDICATOR in response.content.decode()
@@ -48,12 +64,32 @@ def test_renders_fallback_if_no_text_color_is_configured(settings, admin_client)
     assert "color: white" in response.content.decode()
 
 
+def test_renders_fallback_if_no_dark_text_color_is_configured(settings, admin_client):
+    del settings.ADMIN_NOTICE_TEXT_COLOR_DARK
+    color = fake.rgb_css_color()
+    settings.ADMIN_NOTICE_TEXT_COLOR = color
+
+    response = admin_client.get("/admin/")
+    assert RENDER_INDICATOR in response.content.decode()
+    assert f"color: {color}" in response.content.decode()
+
+
 def test_renders_fallback_if_not_background_is_configured(settings, admin_client):
     del settings.ADMIN_NOTICE_BACKGROUND
 
     response = admin_client.get("/admin/")
     assert RENDER_INDICATOR in response.content.decode()
     assert "background: red" in response.content.decode()
+
+
+def test_renders_fallback_if_not_dark_background_is_configured(settings, admin_client):
+    del settings.ADMIN_NOTICE_BACKGROUND_DARK
+    color = fake.rgb_css_color()
+    settings.ADMIN_NOTICE_BACKGROUND = color
+
+    response = admin_client.get("/admin/")
+    assert RENDER_INDICATOR in response.content.decode()
+    assert f"background: {color}" in response.content.decode()
 
 
 def test_renders_only_when_authenticated(settings, client, admin_client):

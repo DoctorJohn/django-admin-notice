@@ -17,6 +17,10 @@
         background: {{ ADMIN_NOTICE_BACKGROUND }};
         content: "{{ ADMIN_NOTICE_TEXT }}";
     }
+    html[data-theme="dark"] body:before {
+        color: {{ ADMIN_NOTICE_TEXT_COLOR_DARK }};
+        background: {{ ADMIN_NOTICE_BACKGROUND_DARK }};
+    }
 </style>
 {% endif %}
 {% endblock %}

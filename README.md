@@ -68,6 +68,14 @@ ADMIN_NOTICE_TEXT_COLOR = "white"
 ADMIN_NOTICE_BACKGROUND = "red"
 ```
 
+Furthermore, optional dark theme color variants can be specified.
+The dark theme colors default to the non-dark theme colors.
+
+```python
+ADMIN_NOTICE_TEXT_COLOR_DARK = "#f2f2f2"
+ADMIN_NOTICE_BACKGROUND_DARK = "#FA8072"
+```
+
 ### Tips
 
 It's a common use case to indicate the projects deployment environment.
