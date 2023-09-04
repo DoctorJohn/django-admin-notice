@@ -8,6 +8,8 @@ DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "db.sql
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
+USE_TZ = True
+
 INSTALLED_APPS = [
     "admin_notice",
     "django.contrib.admin",
