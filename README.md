@@ -3,8 +3,8 @@
 [![PyPI][pypi-image]][pypi-url]
 ![PyPI - Python Version][python-image]
 ![PyPI - Django Version][django-image]
+[![Codecov][codecov-image]][codecov-url]
 [![License][license-image]][license-url]
-[![Tests][tests-image]][tests-url]
 
 [pypi-image]: https://img.shields.io/pypi/v/django-admin-notice
 [pypi-url]: https://pypi.org/project/django-admin-notice/
@@ -12,8 +12,8 @@
 [django-image]: https://img.shields.io/pypi/djversions/django-admin-notice
 [license-image]: https://img.shields.io/pypi/l/django-admin-notice
 [license-url]: https://github.com/DoctorJohn/django-admin-notice/blob/master/LICENSE
-[tests-image]: https://github.com/DoctorJohn/django-admin-notice/workflows/Tests/badge.svg
-[tests-url]: https://github.com/DoctorJohn/django-admin-notice/actions
+[codecov-image]: https://codecov.io/gh/DoctorJohn/django-admin-notice/branch/main/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/DoctorJohn/django-admin-notice
 
 Show a floating notice banner above the Django admin interface.
 Particularly useful for indicating the current deployment environment.
