@@ -21,7 +21,8 @@
 Show a floating notice banner above the Django admin interface.
 Particularly useful for indicating the current deployment environment.
 
-![Admin notice preview](.github/images/preview.png)
+![Admin notice preview (light mode)](.github/images/preview.png#gh-light-mode-only)
+![Admin notice preview (dark mode)](.github/images/preview-dark.png#gh-dark-mode-only)
 
 ## Installation
 
