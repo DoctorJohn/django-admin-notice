@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-admin-notice"
-version = "2.0.0"
+version = "2.1.0"
 description = "Show a floating notice banner above the Django admon interface"
 authors = ["Jonathan Ehwald <github@ehwald.info>"]
 license = "MIT"
