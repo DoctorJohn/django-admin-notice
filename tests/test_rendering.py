@@ -1,6 +1,5 @@
 from faker import Faker
 
-
 fake = Faker()
 RENDER_INDICATOR = "<!-- django-admin-notice -->"
 

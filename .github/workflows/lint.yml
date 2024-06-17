@@ -33,5 +33,5 @@ jobs:
         run: poetry install --no-interaction
       - name: Lint
         run: |
-          poetry run ruff admin_notice tests
-          poetry run black admin_notice tests --check
+          poetry run ruff check admin_notice tests
+          poetry run ruff format --check admin_notice tests
