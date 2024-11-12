@@ -16,7 +16,7 @@
 [codecov-image]: https://codecov.io/gh/DoctorJohn/django-admin-notice/branch/main/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/DoctorJohn/django-admin-notice
 [license-image]: https://img.shields.io/pypi/l/django-admin-notice
-[license-url]: https://github.com/DoctorJohn/django-admin-notice/blob/master/LICENSE
+[license-url]: https://github.com/DoctorJohn/django-admin-notice/blob/main/LICENSE
 
 Show a floating notice banner above the Django admin interface.
 Particularly useful for indicating the current deployment environment.
