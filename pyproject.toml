@@ -35,9 +35,9 @@ python = "^3.10"
 django = ">=4.2"
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.7.3"
+ruff = "^0.11.4"
 pre-commit = "^4.0.1"
-faker = "^30.8.2"
+faker = "^37.1.0"
 pytest = "^8.2.2"
 pytest-cov = "^6.0.0"
 pytest-django = "^4.1.0"
