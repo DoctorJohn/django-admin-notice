@@ -98,7 +98,7 @@ ADMIN_NOTICE_BACKGROUND = environ.get("ADMIN_NOTICE_BACKGROUND", "green")
 
 Take a look at our Django example project under `tests/project`. You can run it by executing these commands:
 
-1. `poetry install`
-2. `poetry run python tests/project/manage.py migrate`
-3. `poetry run python tests/project/manage.py createsuperuser`
-4. `poetry run python tests/project/manage.py runserver`
+1. `uv sync`
+2. `uv run tests/project/manage.py migrate`
+3. `uv run tests/project/manage.py createsuperuser`
+4. `uv run tests/project/manage.py runserver`

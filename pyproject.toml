@@ -34,20 +34,22 @@ repository = "https://github.com/DoctorJohn/django-admin-notice"
 documentation = "https://github.com/DoctorJohn/django-admin-notice"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.poetry]
-packages = [{ include = "admin_notice" }]
+[dependency-groups]
+dev = [
+    "faker>=37.1.0",
+    "pre-commit>=4.2.0",
+    "pytest>=8.3.5",
+    "pytest-cov>=6.1.1",
+    "pytest-django>=4.11.1",
+    "pytest-randomly>=3.16.0",
+    "ruff>=0.11.6",
+]
 
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.11.4"
-pre-commit = "^4.0.1"
-faker = "^37.1.0"
-pytest = "^8.2.2"
-pytest-cov = "^6.0.0"
-pytest-django = "^4.1.0"
-pytest-randomly = "^3.15.0"
+[tool.hatch.build.targets.wheel]
+packages = ["admin_notice"]
 
 [tool.ruff.lint]
 extend-select = ["I"]
