@@ -56,3 +56,4 @@ extend-select = ["I"]
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "tests.project.project.settings"
+addopts = "--cov=admin_notice --cov-report term-missing --cov-report html"
