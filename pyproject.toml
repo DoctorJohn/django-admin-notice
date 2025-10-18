@@ -1,6 +1,6 @@
 [project]
 name = "django-admin-notice"
-version = "3.3.0"
+version = "3.4.0"
 description = "Show a floating notice banner above the Django admon interface"
 authors = [{ name = "Jonathan Ehwald", email = "github@ehwald.info" }]
 license = { text = "MIT" }
