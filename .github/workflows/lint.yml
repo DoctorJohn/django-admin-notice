@@ -26,4 +26,4 @@ jobs:
       - name: Lint
         run: |
           uv run ruff check admin_notice tests
-          uv run ruff format --check admin_notice tests
+          uv run ruff format --diff admin_notice tests
