@@ -12,7 +12,7 @@
 [python-image]: https://img.shields.io/pypi/pyversions/django-admin-notice
 [django-image]: https://img.shields.io/pypi/djversions/django-admin-notice
 [downloads-image]: https://img.shields.io/pypi/dm/django-admin-notice
-[downloads-url]: https://pypi.org/project/django-admin-notice/
+[downloads-url]: https://pypistats.org/packages/django-admin-notice
 [codecov-image]: https://codecov.io/gh/DoctorJohn/django-admin-notice/branch/main/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/DoctorJohn/django-admin-notice
 [license-image]: https://img.shields.io/pypi/l/django-admin-notice
