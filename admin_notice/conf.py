@@ -3,7 +3,7 @@ from django.conf import settings as django_settings
 
 class Settings:
     @property
-    def text(self) -> str:
+    def text(self) -> str | None:
         return getattr(django_settings, "ADMIN_NOTICE_TEXT", None)
 
     @property
