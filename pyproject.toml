@@ -38,10 +38,6 @@ homepage = "https://github.com/DoctorJohn/django-admin-notice"
 repository = "https://github.com/DoctorJohn/django-admin-notice"
 documentation = "https://github.com/DoctorJohn/django-admin-notice"
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
 [dependency-groups]
 dev = [
     "faker>=37.1.0",
@@ -53,8 +49,13 @@ dev = [
     "ruff>=0.11.6",
 ]
 
-[tool.hatch.build.targets.wheel]
-packages = ["admin_notice"]
+[build-system]
+requires = ["uv_build>=0.9.24,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = ""
+module-name = "admin_notice"
 
 [tool.ruff.lint]
 extend-select = ["I", "UP"]
