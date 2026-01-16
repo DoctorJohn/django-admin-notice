@@ -41,7 +41,7 @@ documentation = "https://github.com/DoctorJohn/django-admin-notice"
 [dependency-groups]
 dev = [
     "faker>=37.1.0",
-    "pre-commit>=4.2.0",
+    "prek>=0.2.29",
     "pytest>=8.3.5",
     "pytest-cov>=6.1.1",
     "pytest-django>=4.11.1",
