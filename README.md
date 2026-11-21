@@ -26,7 +26,11 @@ Particularly useful for indicating the current deployment environment.
 
 ## Installation
 
-Install django-admin-notice by running `pip install django-admin-notice`
+Install django-admin-notice by running:
+
+```sh
+pip install django-admin-notice
+```
 
 Add `admin_notice` to your `INSTALLED_APPS` somewhere before `django.contrib.admin`.
 
